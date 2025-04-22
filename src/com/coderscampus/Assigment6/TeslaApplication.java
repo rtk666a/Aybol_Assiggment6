@@ -20,7 +20,7 @@ public class TeslaApplication {
                 System.out.println("no data available for seals");
             }
 
-            System.out.println(); // For spacing between models
+            System.out.println();
         }
 
     }
