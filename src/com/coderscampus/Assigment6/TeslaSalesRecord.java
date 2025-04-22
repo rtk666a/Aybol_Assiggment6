@@ -5,9 +5,9 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 public class TeslaSalesRecord {
-    Models models;
-    YearMonth date;
-    int sales;
+    private Models models;
+    private YearMonth date;
+    private int sales;
 
     public TeslaSalesRecord(Models models, String date, int sales) {
         this.models = models;
