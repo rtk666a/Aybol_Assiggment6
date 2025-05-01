@@ -1,5 +1,6 @@
 package com.coderscampus.Assigment6;
 
+import java.time.YearMonth;
 import java.util.List;
 import java.util.Map;
 
@@ -7,21 +8,14 @@ public class TeslaApplication {
     public static void main(String[] args) {
         SalesService salesService = new SalesService();
         for (Models model : Models.values()) {
-            System.out.println("====== " + model.name() + " ======");
             List<TeslaSalesRecord> salesRecords = salesService.loadData(model);
             Map<Integer, Integer> yearlySales = salesService.collectYearlySales(salesRecords);
-            System.out.println("Yearly Sales: " + yearlySales);
-            try {
-                int bestYear = salesService.getBestSalesYear(yearlySales);
-                int worstYear = salesService.getWorstSalesYear(yearlySales);
-                System.out.println("Best Sales Year: " + bestYear + "Sales : " + yearlySales.get(bestYear));
-                System.out.println("Worst Sales Year: " + worstYear + "Sales : " + yearlySales.get(worstYear));
-            } catch (IllegalStateException e) {
-                System.out.println("no data available for seals");
-            }
-
-            System.out.println();
+            System.out.println(model.name() +" Yearly Sales Report" +
+                                             "\n--------------------------");
+            yearlySales.forEach((year, sales) -> System.out.println( year + " -> " + sales));
+            System.out.println("The best month for  "  + model.name() + " : " + salesService.getBestMonth(salesRecords));
+            System.out.println("The worst month for  " + model.name() + " : " + salesService.getWorstMonth(salesRecords) + "\n");
         }
-
+            
     }
 }

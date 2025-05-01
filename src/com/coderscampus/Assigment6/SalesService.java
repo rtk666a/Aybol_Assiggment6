@@ -1,8 +1,7 @@
 package com.coderscampus.Assigment6;
 
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.time.YearMonth;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class SalesService {
@@ -39,19 +38,19 @@ public class SalesService {
                            ));
     }
 
-    public int getBestSalesYear(Map<Integer, Integer> yearlySales) {
-        return yearlySales.entrySet()
-                .stream()
-                .max(Map.Entry.comparingByValue())
-                .map(Map.Entry::getKey)
-                .orElseThrow(() -> new IllegalStateException("No sales data"));
+    public YearMonth getBestMonth(List<TeslaSalesRecord> salesRecords) {
+        return salesRecords.stream()
+                .filter(Objects::nonNull)
+                .max(Comparator.comparingInt(TeslaSalesRecord::getSales))
+                .map(TeslaSalesRecord::getDate)
+                .orElseThrow(() -> new IllegalStateException("No sales records available"));
     }
 
-    public int getWorstSalesYear(Map<Integer, Integer> yearlySales) {
-        return yearlySales.entrySet()
-                .stream()
-                .min(Map.Entry.comparingByValue())
-                .map(Map.Entry::getKey)
-                .orElseThrow(() -> new IllegalStateException("No sales data"));
+    public YearMonth getWorstMonth(List<TeslaSalesRecord> salesRecords) {
+        return salesRecords.stream()
+                .filter(Objects::nonNull)
+                .min(Comparator.comparingInt(TeslaSalesRecord::getSales))
+                .map(TeslaSalesRecord::getDate)
+                .orElseThrow(() -> new IllegalStateException("No sales records available"));
     }
 }
