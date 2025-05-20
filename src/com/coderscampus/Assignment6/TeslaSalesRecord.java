@@ -1,4 +1,4 @@
-package com.coderscampus.Assigment6;
+package com.coderscampus.Assignment6;
 
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;

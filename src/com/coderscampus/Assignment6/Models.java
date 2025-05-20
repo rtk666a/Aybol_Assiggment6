@@ -1,4 +1,4 @@
-package com.coderscampus.Assigment6;
+package com.coderscampus.Assignment6;
 
 public enum Models {
     model3("Model 3"),
