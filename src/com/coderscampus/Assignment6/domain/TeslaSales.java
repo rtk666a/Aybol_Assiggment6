@@ -1,26 +1,26 @@
-package com.coderscampus.Assignment6;
+package com.coderscampus.Assignment6.domain;
 
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
-public class TeslaSalesRecord {
-    private Models models;
+public class TeslaSales {
+    private TeslaModel models;
     private YearMonth date;
     private int sales;
 
-    public TeslaSalesRecord(Models models, String date, int sales) {
+    public TeslaSales(TeslaModel models, String date, int sales) {
         this.models = models;
         this.date = YearMonth.parse(date, DateTimeFormatter.ofPattern("MMM-yy", Locale.US));
         this.sales = sales;
     }
 
 
-    public Models getModels() {
+    public TeslaModel getModels() {
         return models;
     }
 
-    public void setModels(Models models) {
+    public void setModels(TeslaModel models) {
         this.models = models;
     }
 

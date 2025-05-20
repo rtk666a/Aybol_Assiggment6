@@ -1,4 +1,4 @@
-package com.coderscampus.Assignment6;
+package com.coderscampus.Assignment6.service;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
